@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyoswyfyauigx"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://d153mxt1wdcdl" path="res://physics/marble.tres" id="1_bj782"]
+[ext_resource type="Script" uid="uid://5hjlmbab6d21" path="res://scenes/marble.gd" id="1_il0lc"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_c16uf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7ritg"]
+
+[node name="Marble" type="RigidBody3D"]
+physics_material_override = ExtResource("1_bj782")
+script = ExtResource("1_il0lc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_c16uf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_7ritg")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="PlayerName" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.920931, 0)
+visible = false
+billboard = 1
+text = "Hecbator"

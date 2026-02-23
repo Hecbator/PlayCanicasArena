@@ -1,0 +1,153 @@
+[gd_scene load_steps=10 format=3 uid="uid://cet7qed3j8jea"]
+
+[ext_resource type="Script" uid="uid://qj7cx66peyde" path="res://scenes/stage.gd" id="1_6c5u0"]
+[ext_resource type="PackedScene" uid="uid://dyoswyfyauigx" path="res://scenes/marble.tscn" id="1_8rem4"]
+[ext_resource type="PackedScene" uid="uid://comrjenil2xkq" path="res://scenes/stadium.tscn" id="3_6c5u0"]
+[ext_resource type="PackedScene" uid="uid://cv0u4draajsya" path="res://player/player.tscn" id="3_kewym"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kewym"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_6c5u0"]
+sky_material = SubResource("ProceduralSkyMaterial_kewym")
+
+[sub_resource type="Environment" id="Environment_vcsse"]
+background_mode = 2
+sky = SubResource("Sky_6c5u0")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vcsse"]
+size = Vector3(68, 2, 105)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2so7o"]
+size = Vector3(68, 2, 105)
+
+[node name="Stage" type="Node3D"]
+script = ExtResource("1_6c5u0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vcsse")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999519, 0.031027, 0, -0.031027, 0.999519, 0.8328, 21.9096, 31.4421)
+
+[node name="Marble" parent="." instance=ExtResource("1_8rem4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.7511, 56.5898, -4.2129)
+
+[node name="Marble2" parent="." instance=ExtResource("1_8rem4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.0645, 56.5898, -4.2129)
+
+[node name="Marble3" parent="." instance=ExtResource("1_8rem4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.134293, 53.7496, 7.6536)
+
+[node name="Marble7" parent="." instance=ExtResource("1_8rem4")]
+transform = Transform3D(0.937026, 0, 0.349259, 0, 1, 0, -0.349259, 0, 0.937026, -33.1518, 49.6318, 40.8005)
+
+[node name="Marble8" parent="." instance=ExtResource("1_8rem4")]
+transform = Transform3D(0.937026, 0, 0.349259, 0, 1, 0, -0.349259, 0, 0.937026, 20.2389, 55.6381, 4.01812)
+
+[node name="Marble9" parent="." instance=ExtResource("1_8rem4")]
+transform = Transform3D(0.937026, 0, 0.349259, 0, 1, 0, -0.349259, 0, 0.937026, 0.903317, 52.798, 29.1395)
+
+[node name="Marble4" parent="." instance=ExtResource("1_8rem4")]
+transform = Transform3D(0.952252, 0, 0.305313, 0, 1, 0, -0.305313, 0, 0.952252, -53.9281, 57.0656, -20.2606)
+
+[node name="Marble5" parent="." instance=ExtResource("1_8rem4")]
+transform = Transform3D(0.952252, 0, 0.305313, 0, 1, 0, -0.305313, 0, 0.952252, 39.217, 57.0656, -50.1249)
+
+[node name="Marble6" parent="." instance=ExtResource("1_8rem4")]
+transform = Transform3D(0.952252, 0, 0.305313, 0, 1, 0, -0.305313, 0, 0.952252, 4.56064, 54.2254, -26.5518)
+
+[node name="PlayerA_00" parent="." node_paths=PackedStringArray("field_area") groups=["TeamA"] instance=ExtResource("3_kewym")]
+transform = Transform3D(0.999997, -0.00200782, 0.00146067, 0.00201014, 0.999997, -0.00159078, -0.00145748, 0.00159371, 0.999998, 0, 0, -16.609)
+player_number = "00"
+color_hair = Color(0.632933, 0.431957, 0.131445, 1)
+field_area = NodePath("../Stadium/Area3D_B")
+speed = 14.9617
+pan = 0.145781
+tilt = 0.465305
+power = 57
+
+[node name="PlayerA_01" parent="." node_paths=PackedStringArray("field_area") groups=["TeamA"] instance=ExtResource("3_kewym")]
+transform = Transform3D(0.999997, -0.00200782, 0.00146067, 0.00201014, 0.999997, -0.00159078, -0.00145748, 0.00159371, 0.999998, 11.527, 0, -29.826)
+player_number = "01"
+color_skin = Color(0.75, 0.351875, 0.0675, 1)
+color_hair = Color(0.18, 0.06192, 0.0324, 1)
+field_area = NodePath("../Stadium/Area3D_B")
+speed = 3.95093
+pan = 0.213296
+tilt = 0.457079
+power = 11
+
+[node name="PlayerA_02" parent="." node_paths=PackedStringArray("field_area") groups=["TeamA"] instance=ExtResource("3_kewym")]
+transform = Transform3D(0.999997, -0.00200782, 0.00146067, 0.00201014, 0.999997, -0.00159078, -0.00145748, 0.00159371, 0.999998, -11.527, 0, -29.826)
+player_number = "02"
+color_skin = Color(0.996008, 0.71453, 0.567717, 1)
+color_hair = Color(0.15608, 0.0380086, 0.0152007, 1)
+field_area = NodePath("../Stadium/Area3D_B")
+speed = 7.20487
+pan = 0.221727
+tilt = 0.403399
+power = 26
+
+[node name="PlayerB_00" parent="." node_paths=PackedStringArray("field_area") groups=["TeamB"] instance=ExtResource("3_kewym")]
+transform = Transform3D(-0.999973, 0.00199875, -0.00713297, 0.00201014, 0.999997, -0.00159078, 0.00712978, -0.00160507, -0.999974, -0.0499808, 0, 14.6423)
+player_number = "00"
+color_skin = Color(0.991959, 0.611998, 0.40539, 1)
+color_hair = Color(0.253417, 0.0738916, 0.0297664, 1)
+color_shirt = Color(0.594791, 0.0924769, 0.376769, 1)
+color_pants = Color(0.931724, 1, 0.991066, 1)
+field_area = NodePath("../Stadium/Area3D_F")
+speed = 6.25078
+pan = 0.275933
+tilt = 0.333071
+power = 33
+
+[node name="PlayerB_01" parent="." node_paths=PackedStringArray("field_area") groups=["TeamB"] instance=ExtResource("3_kewym")]
+transform = Transform3D(-0.999973, 0.00199875, -0.00713297, 0.00201014, 0.999997, -0.00159078, 0.00712978, -0.00160507, -0.999974, -11.5018, 0, 27.9245)
+player_number = "01"
+color_skin = Color(0.405466, 0.190422, 0.0745845, 1)
+color_hair = Color(0.83, 0.73538, 0.3569, 1)
+color_shirt = Color(0.594791, 0.0924769, 0.376769, 1)
+color_pants = Color(0.931724, 1, 0.991066, 1)
+field_area = NodePath("../Stadium/Area3D_F")
+speed = 6.51315
+pan = 0.0806073
+tilt = 0.582228
+power = 89
+
+[node name="PlayerB_02" parent="." node_paths=PackedStringArray("field_area") groups=["TeamB"] instance=ExtResource("3_kewym")]
+transform = Transform3D(-0.999973, 0.00199875, -0.00713297, 0.00201014, 0.999997, -0.00159078, 0.00712978, -0.00160507, -0.999974, 11.5518, 0, 27.7937)
+player_number = "02"
+color_skin = Color(0.996615, 0.745366, 0.61535, 1)
+color_hair = Color(0.66, 0.22704, 0.1188, 1)
+color_shirt = Color(0.594791, 0.0924769, 0.376769, 1)
+color_pants = Color(0.931724, 1, 0.991066, 1)
+field_area = NodePath("../Stadium/Area3D_F")
+speed = 10.2665
+pan = 0.279239
+tilt = 0.289768
+power = 11
+
+[node name="Stadium" parent="." instance=ExtResource("3_6c5u0")]
+
+[node name="Area3D_F" type="Area3D" parent="Stadium"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stadium/Area3D_F"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_vcsse")
+debug_color = Color(0.7, 0, 0.28, 0.733333)
+
+[node name="Area3D_B" type="Area3D" parent="Stadium"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stadium/Area3D_B"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_2so7o")
